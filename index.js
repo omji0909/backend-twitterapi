@@ -30,7 +30,8 @@ app.use(express.json());
   async function get_followers(req,res) {
     
     const followers = await twitterClient.accountsAndUsers.followersList({
-      screen_name:req.body.userName
+      screen_name:req.body.userName,
+      count:200
     }).catch(err=>{
       console.log(err);
     });
